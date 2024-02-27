@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question - 3</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+      }
+
+      .answer {
+        display: none;
+        max-width: 600px;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      .answer {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .math {
+        display: inline-block;
+        font-size: 18px;
+      }
+
+      .math.display {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .math.inline {
+        display: inline;
+      }
+      p {
+        margin: 0;
+      }
+      .question {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="question">
+      (a) Express the double integral
+      <span class="math inline">$$\int_{0}^{2} \int_{x}^{3x-x^2} dy dx$$</span>
+      as an iterated integral for the given function \(f\) and region \(D\).
+    </p>
+    <br />
+    <br />
+    <p class="question">(b) Evaluate the iterated integral.</p>
+
+    <br /><br /><br /><br />
+    <img
+      src="../images/dig.png"
+      alt="A graph of the area that you are going to integrate with"
+    />
+
+    <br /><br /><br /><br />
+    <button onclick="toggleAnswer()">Show Answer</button>
+
+    <div class="answer">
+      <p>
+        (a). Notice this is the first type region, so we have
+        <span class="math display"
+          >$$\int_{0}^{2} \int_{x}^{3x-x^2} dy dx$$</span
+        >
+      </p>
+      <p>
+        (b). Now, we are going to solving this double integral by solving the
+        inner integral firstly
+        <span class="math display">$$\int_{0}^{2} (3x-x^2-x) dx$$</span>
+      </p>
+      <p>Next, we solve the outer integral</p>
+      <p>
+        <span class="math display">$$\int_{0}^{2} (2x-x^2) dx$$</span>
+      </p>
+      <p>At last, we compute the result</p>
+      <p>
+        <span class="math display">$$x^2 - \frac{x^3}{3} \Big|_{0}^{2}$$</span>
+      </p>
+      <p><span class="math display">$$4 - \frac{8}{3}$$</span></p>
+      <p><span class="math display">$$\frac{4}{3}$$</span></p>
+      <p>
+        Thus, the answer for this double integral is
+        <span class="math inline">$$\frac{4}{3}$$</span>
+      </p>
+    </div>
+
+    <script>
+      function toggleAnswer() {
+        var answerDiv = document.querySelector(".answer");
+        var answerDivStyle = window.getComputedStyle(answerDiv);
+
+        if (answerDivStyle.display === "none") {
+          answerDiv.style.display = "block";
+        } else {
+          answerDiv.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

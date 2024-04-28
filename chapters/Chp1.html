@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      button {
+        margin-top: 10x;
+        padding: 5px 10px;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      #quitButton {
+        top: 25%;
+        margin-left: 90%;
+      }
+      #quitButton:hover::after {
+        content: "Press \2190";
+        position: absolute;
+        bottom: 82%;
+        left: 90%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+    </style>
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          var prevButton = document.getElementById("quitButton");
+          if (prevButton) {
+            quitButton.click();
+          }
+        }
+      });
+    </script>
+    <title>Chapter 1</title>
+  </head>
+  <body>
+    <p>This is Chpater 1</p>
+    <br />
+    <div>
+      <a href="/index.html">
+        <button id="quitButton">Quit</button>
+      </a>
+    </div>
+
+    <div>
+      <h2>Questions:</h2>
+      <br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 1.html"
+        >1 - For what value(s) of ...</a
+      >
+      <br /><br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 2.html"
+        >2 - For what value(s) of ...</a
+      >
+      <br /><br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 3.html"
+        >3 - For what value(s) of ...</a
+      >
+      <br /><br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 4.html"
+        >4 - For what value(s) of ...</a
+      >
+      <br /><br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 5.html">1 - REF or RREF? </a>
+      <br /><br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 6.html">2 - REF or RREF? </a>
+      <br /><br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 7.html">3 - REF or RREF? </a>
+      <br /><br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 8.html"
+        >1 - Fitting a polynomial...
+      </a>
+      <br /><br /><br />
+      <a href="/Problem sets/chapter1/Chp1 - 9.html"
+        >2 - Fitting a polynomial...
+      </a>
+    </div>
+  </body>
+</html>

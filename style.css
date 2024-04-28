@@ -1,0 +1,78 @@
+html{
+    background-color: rgb(242, 244, 183);
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: lightcoral;
+    text-align: left;
+}
+
+
+#download_button {
+    background-color: yellowgreen;
+    color: white;
+    padding: 10px 20px;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 170px;
+  }
+
+  
+  #download_button:hover {
+    background-color: darkgreen;
+  }
+
+  .link_container1{
+    /* text-decoration: none;
+    color: lightgrey;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    margin-left: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between; */
+
+    text-decoration: none;
+    color: #3498db; /* 修改链接颜色为蓝色，可以根据需要调整颜色 */
+    font-size: 20px;
+    transition: color 0.3s ease;
+    margin-left: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .link_container1:hover {
+    color: #e74c3c; /* 修改链接在悬停时的颜色，可以根据需要调整颜色 */
+}
+
+.link_container2{
+    /* text-decoration: none;
+    color: lightgrey;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    margin-left: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between; */
+
+    text-decoration: none;
+    color: #3498db; /* 修改链接颜色为蓝色，可以根据需要调整颜色 */
+    font-size: 20px;
+    transition: color 0.3s ease;
+    margin-left: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .link_container2:hover {
+    color: #e74c3c; /* 修改链接在悬停时的颜色，可以根据需要调整颜色 */
+}

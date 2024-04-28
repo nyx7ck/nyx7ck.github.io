@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+      async
+    ></script>
+    <style>
+      #prevButton {
+        margin-top: 2%;
+        left: 5%;
+      }
+      #nextButton {
+        margin-top: 2%;
+        left: 95%;
+      }
+      button {
+        margin-top: 10x;
+        padding: 5px 10px;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+
+        margin: -20px -50px;
+        position: relative;
+        top: 90%;
+        left: 48%;
+      }
+      .answer {
+  display: none;
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 52%;
+  transform: translateX(-50%);
+}
+
+      .highlight {
+    color: red;
+    font-size: x-large;
+  }
+    </style>
+   <script>
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") {
+        var prevButton = document.getElementById("prevButton");
+        if (prevButton) {
+          prevButton.click();
+        }
+      }
+      if (event.key === "ArrowRight") {
+        var nextButton = document.getElementById("nextButton");
+        if (nextButton) {
+          nextButton.click();
+        }
+      }
+      
+    });
+  </script>
+   <script>
+    function toggleAnswer() {
+      var answerDiv = document.querySelector(".answer");
+      var answerDivStyle = window.getComputedStyle(answerDiv);
+
+      if (answerDivStyle.display === "none") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        toggleAnswer();
+      }
+    });
+  </script>
+    <title>#1</title>
+  </head>
+  <body style="background-color: honeydew">
+    <a href="/chapters/Chp1.html">
+      <button id="prevButton">Home</button>
+    </a>
+
+    <a href="Chp1 - 2.html">
+      <button id="nextButton">Next</button>
+    </a>
+    <div style="text-align: center" \>
+      <p>
+        For what value(s) of <span class="math inline"><em>k</em></span> is the
+        linear system consistent?
+      </p>
+      <p>
+        <span class="math display"
+          >6<em>x</em><sub>1</sub> − 5<em>x</em><sub>2</sub> = 4</span
+        >
+      </p>
+      <p>
+        <span class="math display"
+          >9<em>x</em><sub>1</sub> + <em>k</em><em>x</em
+          ><sub>2</sub> =  − 1</span
+        >
+      </p>
+    </div>
+    <br /><br /><br />
+
+    <button onclick="toggleAnswer()">Show Answer</button>
+    <br /><br /><br />
+
+    <div class="answer">
+      <p>
+        If the linear system has one or infinitely many solutions, it is
+        <span class="highlight">consistent</span>.
+      </p>
+      <br>
+      <p>Transform from linear system to matrix form:</p>
+      <p style="text-align: center;">
+        <span class="math display">
+          \(
+          \left[
+          \begin{array}{cc|c}
+            6 & -5 & 4 \\
+            9 & k & -1
+          \end{array}
+          \right]
+          \)
+        </span>
+      </p>
+      <p>
+        By applying Elementary Row Operation:
+        <span class="math inline" style="text-align: center"
+          >2<em>R</em><sub>2</sub> − 3<em>R</em><sub>1</sub> → <em>R</em
+          ><sub>2</sub></span
+        >, we get:
+        <p style="text-align: center;">
+          <span class="math display">
+            \(
+            \left[
+            \begin{array}{cc|c}
+              6 & -5 & 4 \\
+              0 & 2k + 15 & -14
+            \end{array}
+            \right]
+            
+            \)
+          </span>
+        </p>
+      </p>
+      <p>
+        In order to be consistent, 
+        <span class="highlight">the second pivot couldn’t be zero</span>, so we
+        have:
+      </p>
+      <p style="text-align: center">
+        <p style="text-align: center;">
+          <span class="math display">2<em>k</em> + 15 ≠ 0</span>
+        </p>
+        <p style="text-align: center;">
+          <span class="math display">2<em>k</em> ≠ −15</span>
+        </p>
+        
+        <span class="math display">$$k \neq -\frac{15}{2}$$</span>
+      </p>
+
+      <p>So, values of k could be:</p>
+      <p>
+        <span class="math display" style="text-align: center"
+          >$$\{k \in \mathbb{R}| k \neq -\frac{15}{2}\}$$</span
+        >
+      </p>
+    </div>
+    <script>
+      function toggleAnswer() {
+        var answerDiv = document.querySelector(".answer");
+        var answerDivStyle = window.getComputedStyle(answerDiv);
+
+        if (answerDivStyle.display === "none") {
+          answerDiv.style.display = "block";
+        } else {
+          answerDiv.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

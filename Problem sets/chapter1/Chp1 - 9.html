@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {extensions: ["cancel.js"]},
+        tex2jax: {
+          inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script
+      type="text/javascript"
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <style>
+      #prevButton {
+        margin-top: 2%;
+        left: 5%;
+      }
+      #nextButton {
+        margin-top: 2%;
+        left: 95%;
+      }
+      button {
+        margin-top: 10x;
+        padding: 5px 10px;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+
+        margin: -20px -50px;
+        position: relative;
+        top: 90%;
+        left: 48%;
+      }
+      .answer {
+        display: none;
+        max-width: 600px;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 52%;
+        transform: translateX(-50%);
+      }
+
+      .redhighlight {
+        color: red;
+        font-size: x-large;
+      }
+      .greenhighlight {
+        color: green;
+        font-size: x-large;
+      }
+    </style>
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          var prevButton = document.getElementById("prevButton");
+          if (prevButton) {
+            prevButton.click();
+          }
+        }
+        if (event.key === "ArrowRight") {
+          var nextButton = document.getElementById("nextButton");
+          if (nextButton) {
+            nextButton.click();
+          }
+        }
+      });
+    </script>
+    <script>
+      function toggleAnswer() {
+        var answerDiv = document.querySelector(".answer");
+        var answerDivStyle = window.getComputedStyle(answerDiv);
+
+        if (answerDivStyle.display === "none") {
+          answerDiv.style.display = "block";
+        } else {
+          answerDiv.style.display = "none";
+        }
+      }
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          toggleAnswer();
+        }
+      });
+    </script>
+    <title>#9</title>
+  </head>
+  <body style="background-color: honeydew">
+    <a href="Chp1 - 8.html">
+      <button id="prevButton">Prev</button>
+    </a>
+
+    <a href="/chapters/Chp1.html">
+      <button id="nextButton">Home</button>
+    </a>
+    <div style="text-align: center">
+      <p>
+        Find the values of the coefficients
+        <span class="math inline"><em>a</em>, <em>b</em>,</span> and
+        <span class="math inline"><em>c</em></span> for
+        <span class="math display"> \[f(x) = ae^x + be^{2x} + ce^{-3x}\] </span>
+        so the given conditions are met.
+      </p>
+      <p>
+        <span class="math display"><em>f </em>(0) = 2</span>
+      </p>
+      <p>
+        <span class="math display"><em>f </em>′(0) = 1</span>
+      </p>
+      <p>
+        <span class="math display"><em>f </em>″(0) = 19</span>
+      </p>
+    </div>
+    <br /><br /><br />
+
+    <button onclick="toggleAnswer()">Show Answer</button>
+    <br /><br /><br />
+
+    <div class="answer">
+      <p>
+        1. Solve for the
+        <span class="math inline"><em>f </em>′(<em>x</em>)</span> and
+        <span class="math inline"><em>f </em>″(<em>x</em>)</span>
+      </p>
+      <p>
+        <span class="math display"
+          >$$\frac{dy}{dx} = ae^x + 2be^{2x} -3ce^{-3x}$$</span
+        >
+      </p>
+      <p>
+        <span class="math display"
+          >$$\frac{d^2y}{dx^2} = ae^x + 4be^{2x} + 9ce^{-3x}$$</span
+        >
+      </p>
+      <p>2. Substitute three conditions into three equations we got:</p>
+      <p style="text-align: center">
+        <span class="math display"
+          >2 = <em>a</em> + <em>b</em> + <em>c</em></span
+        >
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          >1 = <em>a</em> + 2<em>b</em> − 3<em>c</em></span
+        >
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          >19 = <em>a</em> + 4<em>b</em> + 9<em>c</em></span
+        >
+      </p>
+      <p>3. Turning this linear system to matrix form:</p>
+      <p style="text-align: center">
+        <span class="math display"
+          >\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 2 \\ 1 &amp; 2
+          &amp; -3 &amp; 1 \\ 1 &amp; 4 &amp; 9 &amp; 19
+          \end{array}\right]\)</span
+        >
+      </p>
+      <p>4. Applying Elementary Row Operations to get REF:</p>
+      <p>
+        <span class="math inline"
+          >\[\xrightarrow[R_3 - R_1 \rightarrow R_3]{R_2 - R_1 \rightarrow
+          R_2}\]</span
+        >
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          >\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 2 \\ 0 &amp; 1
+          &amp; -4 &amp; -1 \\ 0 &amp; 3 &amp; 8 &amp; 17
+          \end{array}\right]\)</span
+        >
+      </p>
+      <p>
+        <span class="math inline"
+          >\[\xrightarrow{R_3 - 3R_2 \rightarrow R_3}\]</span
+        >
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          >\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 2 \\ 0 &amp; 1
+          &amp; -4 &amp; -1 \\ 0 &amp; 0 &amp; 20 &amp; 20
+          \end{array}\right]\)</span
+        >
+      </p>
+      <p>3. Applying the backward substitution:</p>
+      <p style="text-align: center">
+        <span class="math display"><em>c</em> = 1</span>
+      </p>
+      <p style="text-align: center">
+        <span class="math display"><em>b</em> − 4<em>c</em> =  − 1</span>
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          ><em>a</em> + <em>b</em> + <em>c</em> = 2</span
+        >
+      </p>
+      <p>Solving these equations, we get:</p>
+      <p>
+        <span class="math display"
+          >$$\begin{bmatrix} a \\ b \\ c \end{bmatrix} = \begin{bmatrix} -2 \\ 3
+          \\ 1 \end{bmatrix}$$</span
+        >
+        Thus,
+        <span class="math display" style="color: red">
+          \[ f(x) = -2e^x + 3e^{2x} + e^{-3x} \]
+        </span>
+      </p>
+    </div>
+    <script>
+      function toggleAnswer() {
+        var answerDiv = document.querySelector(".answer");
+        var answerDivStyle = window.getComputedStyle(answerDiv);
+
+        if (answerDivStyle.display === "none") {
+          answerDiv.style.display = "block";
+        } else {
+          answerDiv.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

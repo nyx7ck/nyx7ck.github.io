@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      TeX: {extensions: ["cancel.js"]},
+      tex2jax: {
+          inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+          processEscapes: true
+      }
+      });
+    </script>
+    <script
+      type="text/javascript"
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <style>
+      #prevButton {
+        margin-top: 2%;
+        left: 7%;
+      }
+      #prevButton:hover::after {
+        content: "Press \2190";
+        position: absolute;
+        top: 150%;
+        left: 2%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      #nextButton {
+        margin-top: 2%;
+        left: 95%;
+      }
+      #nextButton:hover::after {
+        content: "Press \2192";
+        position: absolute;
+        top: 150%;
+        left: 2%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      #quitButton {
+        margin-top: 25%;
+        left: 95%;
+      }
+      #quitButton:hover::after {
+        content: "Press Backspace";
+        position: absolute;
+        bottom: -160%;
+        left: -10%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      button {
+        margin-top: 10x;
+        padding: 5px 10px;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+
+        margin: -20px -50px;
+        position: relative;
+        top: 90%;
+        left: 48%;
+      }
+      .answer {
+        display: none;
+        max-width: 630px;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 52%;
+        transform: translateX(-50%);
+      }
+
+      .redhighlight {
+        color: red;
+        font-size: x-large;
+      }
+      .greenhighlight {
+        color: green;
+        font-size: x-large;
+      }
+    </style>
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          var prevButton = document.getElementById("prevButton");
+          if (prevButton) {
+            prevButton.click();
+          }
+        }
+        if (event.key === "ArrowRight") {
+          var nextButton = document.getElementById("nextButton");
+          if (nextButton) {
+            nextButton.click();
+          }
+        }
+        if (event.key === "Backspace") {
+          var nextButton = document.getElementById("nextButton");
+          if (quitButton) {
+            quitButton.click();
+          }
+        }
+      });
+    </script>
+    <script>
+      function toggleAnswer() {
+        var answerDiv = document.querySelector(".answer");
+        var answerDivStyle = window.getComputedStyle(answerDiv);
+
+        if (answerDivStyle.display === "none") {
+          answerDiv.style.display = "block";
+        } else {
+          answerDiv.style.display = "none";
+        }
+      }
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          toggleAnswer();
+        }
+      });
+    </script>
+    <title>#8</title>
+  </head>
+  <body style="background-color: honeydew">
+    <a href="Chp1 - 7.html">
+      <button id="prevButton">Prev</button>
+    </a>
+    
+    <a href="Chp1 - 9.html">
+      <button id="nextButton">Next</button>
+    </a>
+    
+
+    <div style="text-align: center">
+      <p>Figure below shows the plot of the points (1,4), (2,7), and (3,14).</p>
+      <img
+        src="/pic/first_polynomial_graph.png"
+        alt="a picture of a polynomial function"
+      />
+      <p>
+        Find a polynomial of degree 2 of the form
+        <span class="math inline"
+          ><em>f</em>(<em>x</em>) = <em>a</em><em>x</em><sup>2</sup> + <em>b</em
+          ><em>x</em> + <em>c</em></span
+        >
+        whose graph passes through these points.
+      </p>
+    </div>
+    <br /><br /><br />
+    
+
+
+    <button onclick="toggleAnswer()">Show Answer</button>
+    <br /><br /><br />
+
+    <div class="answer">
+      <p>
+        1. Substitute three points into
+        <span class="math inline"><em>f</em>(<em>x</em>)</span>, so we get:
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          >4 = <em>a</em> + <em>b</em> + <em>c</em></span
+        >
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          >7 = 4<em>a</em> + 2<em>b</em> + <em>c</em></span
+        >
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          >14 = 9<em>a</em> + 3<em>b</em> + <em>c</em></span
+        >
+      </p>
+      <p>2. Turning this linear system to matrix form:</p>
+      <p style="text-align: center">
+        <span class="math display"
+          >\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 4 \\ 4 &amp; 2
+          &amp; 1 &amp; 7 \\ 9 &amp; 3 &amp; 1 &amp; 14
+          \end{array}\right]\)</span
+        >
+      </p>
+      <p>3. Applying Elementary Row Operations to get REF:</p>
+      <p>
+        <span class="math inline"
+          >\[\xrightarrow[R_3 - 9R_1 \rightarrow R_3]{R_2 - 4R_1 \rightarrow
+          R_2}\]</span
+        >
+      </p>
+      <p></p>
+      <p style="text-align: center">
+        <span class="math display"
+          >\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 4 \\ 0 &amp; -2
+          &amp; -3 &amp; -9 \\ 0 &amp; -6 &amp; -8 &amp; -22
+          \end{array}\right]\)</span
+        >
+      </p>
+      <p>
+        <span class="math inline"
+          >\[\xrightarrow{R_3 - 3R_2 \rightarrow R_3}\]</span
+        >
+      </p>
+      <p style="text-align: center">
+        <span class="math display"
+          >\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 4 \\ 0 &amp; -2
+          &amp; -3 &amp; -9 \\ 0 &amp; 0 &amp; 1 &amp; 5
+          \end{array}\right]\)</span
+        >
+      </p>
+      <p>
+        3. Applying the backward substitution:
+        <p style="text-align: center;"><span class="math display"><em>c</em> = 5</span></p>
+        <p style="text-align: center;"><span class="math display"> − 2<em>b</em> − 3<em>c</em> =  − 9</span></p>
+        <p style="text-align: center;"><span class="math display"
+            ><em>a</em> + <em>b</em> + <em>c</em> = 4</span
+          ></p>
+        
+        
+        
+      </p>
+      <p>Solving these equations, we get:</p>
+      <p>
+        <span class="math display"
+          >$$\begin{bmatrix} a \\ b \\ c \end{bmatrix} = \begin{bmatrix} 2 \\ -3
+          \\ 5 \end{bmatrix}$$</span
+        >
+      </p>
+      <p>Thus, <span
+        class="math display" style="color: red;">
+        \[ f(x) = 2x^2 - 3x + 5\]
+    </span></p>
+    </div>
+    
+    <br /><br /><br />
+    <a href="/chapters/Chp1.html">
+      <button id="quitButton">Quit</button>
+    </a>
+  </body>
+</html>

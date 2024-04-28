@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      TeX: {extensions: ["cancel.js"]},
+      tex2jax: {
+          inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+          processEscapes: true
+      }
+      });
+    </script>
+    <script
+      type="text/javascript"
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <style>
+      #prevButton {
+        margin-top: 2%;
+        left: 7%;
+      }
+      #prevButton:hover::after {
+        content: "Press \2190";
+        position: absolute;
+        top: 150%;
+        left: 2%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      #nextButton {
+        margin-top: 2%;
+        left: 95%;
+      }
+      #nextButton:hover::after {
+        content: "Press \2192";
+        position: absolute;
+        top: 150%;
+        left: 2%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      #quitButton {
+        margin-top: 25%;
+        left: 95%;
+      }
+      #quitButton:hover::after {
+        content: "Press \2193";
+        position: absolute;
+        bottom: -100%;
+        left: 10%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      button {
+        margin-top: 10x;
+        padding: 5px 10px;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+
+        margin: -20px -50px;
+        position: relative;
+        top: 90%;
+        left: 48%;
+      }
+      .answer {
+        display: none;
+        max-width: 630px;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 52%;
+        transform: translateX(-50%);
+      }
+
+      .redhighlight {
+        color: red;
+        font-size: x-large;
+      }
+      .greenhighlight {
+        color: green;
+        font-size: x-large;
+      }
+    </style>
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          var prevButton = document.getElementById("prevButton");
+          if (prevButton) {
+            prevButton.click();
+          }
+        }
+        if (event.key === "ArrowRight") {
+          var nextButton = document.getElementById("nextButton");
+          if (nextButton) {
+            nextButton.click();
+          }
+        }
+        if (event.key === "Backspace") {
+          var nextButton = document.getElementById("nextButton");
+          if (quitButton) {
+            quitButton.click();
+          }
+        }
+      });
+    </script>
+
+    <script>
+      function toggleAnswer() {
+        var answerDiv = document.querySelector(".answer");
+        var answerDivStyle = window.getComputedStyle(answerDiv);
+
+        if (answerDivStyle.display === "none") {
+          answerDiv.style.display = "block";
+        } else {
+          answerDiv.style.display = "none";
+        }
+      }
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          toggleAnswer();
+        }
+      });
+    </script>
+    <title>#19</title>
+  </head>
+  <body style="background-color: honeydew">
+    <a href="Chp2 - 18.html">
+      <button id="prevButton">Prev</button>
+    </a>
+
+    <a href="Chp2 - 20.html">
+      <button id="nextButton">Next</button>
+    </a>
+    <div style="text-align: center">
+      <p>
+        Determine if the statement is true or false, and justify your answer.
+      </p>
+      <p>
+        <span style="color: blue"
+          >If <span class="math inline"><em>A</em></span> is a matrix with
+          columns that Span
+          <span class="math inline"
+            ><em>R</em><sup><em>n</em></sup></span
+          >, then <span class="math inline">\( A\vec{x} = \vec{b} \)</span> has
+          a solution for all <span class="math inline"><em>b</em></span> in
+          <span class="math inline"
+            ><em>R</em><sup><em>n</em></sup></span
+          ></span
+        >
+      </p>
+    </div>
+    <br /><br /><br />
+
+    <button onclick="toggleAnswer()">Show Answer</button>
+    <br /><br /><br />
+    <div class="answer">
+      <p>1. By reading the question carefully, notice:</p>
+      <p>
+        <span class="math display">\[ \#columns \geq \#rows \]</span>
+      </p>
+      <p>
+        so the shapes of the matrix would
+        <span class="greenhighlight"
+          >either be horizontal chunk or square matrix</span
+        >
+        :
+      </p>
+      <p>
+        <span class="math display"
+          >$$\begin{bmatrix} * &amp; * &amp; * \\ * &amp; * &amp; *
+          \end{bmatrix} \quad or \quad \begin{bmatrix} * &amp; * \\ * &amp; *
+          \end{bmatrix}$$</span
+        >
+      </p>
+      <p>
+        <br />
+        <br />
+        2. The question mention that the column vectors span
+        <span class="math inline"
+          ><em>R</em><sup><em>n</em></sup></span
+        >. In other words, doing RREF to this matrix will have a matrix like
+        these:
+      </p>
+      <p>
+        <span class="math display"
+          >$$\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0
+          \end{bmatrix} \quad or \quad \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1
+          \end{bmatrix}$$</span
+        >
+      </p>
+      <p>
+        <br />
+        <br />
+        3.<span style="color: brown; font-size: x-large">
+          We proceed proof by contradiction</span
+        >: assuming A is a matrix with columns that span
+        <span class="math inline"
+          ><em>R</em><sup><em>n</em></sup></span
+        >, then <span class="math inline">\( A\vec{x} = \vec{b}\)</span> has no
+        solution for all b in
+        <span class="math inline"
+          ><em>R</em><sup><em>n</em></sup></span
+        >.
+        <span class="redhighlight"
+          >If we could find one counterexample, prove the assuming statement is
+          false, then the original statement will be true!</span
+        >
+        <br />
+        <br />
+        Notice:
+      </p>
+      <p>
+        <span class="math display">\[I\vec{x} = \vec{b}\]</span>
+      </p>
+      <br />
+      <p>
+        <span class="math display"
+          >$$\left[ \begin{array} {cc|c} 1 &amp; 0 &amp; b_1 \\ 0 &amp; 1 &amp;
+          b_2 \end{array} \right]$$</span
+        >
+      </p>
+      <br />
+      <p>
+        <span class="math display"
+          >$$\vec{x} = \begin{bmatrix} b_1 \\ b_2 \end{bmatrix}$$</span
+        >
+      </p>
+      <p>
+        Column vectors of Identity matrix did span
+        <span class="math inline"><em>R</em><sup>2</sup></span
+        >, and applying back-substitution,
+        <span class="greenhighlight"
+          >there is a unique solution, so our assumption is false</span
+        >.
+      </p>
+      <p>Thus, the statement is <span class="redhighlight">True</span>.</p>
+    </div>
+    <br /><br /><br />
+    <a href="/chapters/Chp2.html">
+      <button id="quitButton">Quit</button>
+    </a>
+  </body>
+</html>

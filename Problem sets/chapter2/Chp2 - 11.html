@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      TeX: {extensions: ["cancel.js"]},
+      tex2jax: {
+          inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+          processEscapes: true
+      }
+      });
+    </script>
+    <script
+      type="text/javascript"
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <style>
+      #prevButton {
+        margin-top: 2%;
+        left: 7%;
+      }
+      #prevButton:hover::after {
+        content: "Press \2190";
+        position: absolute;
+        top: 150%;
+        left: 2%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      #nextButton {
+        margin-top: 2%;
+        left: 95%;
+      }
+      #nextButton:hover::after {
+        content: "Press \2192";
+        position: absolute;
+        top: 150%;
+        left: 2%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      #quitButton {
+        margin-top: 25%;
+        left: 95%;
+      }
+      #quitButton:hover::after {
+        content: "Press \2193";
+        position: absolute;
+        bottom: -100%;
+        left: 10%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+      button {
+        margin-top: 10x;
+        padding: 5px 10px;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+
+        margin: -20px -50px;
+        position: relative;
+        top: 90%;
+        left: 48%;
+      }
+      .answer {
+        display: none;
+        max-width: 630px;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 52%;
+        transform: translateX(-50%);
+      }
+
+      .redhighlight {
+        color: red;
+        font-size: x-large;
+      }
+      .greenhighlight {
+        color: green;
+        font-size: x-large;
+      }
+    </style>
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          var prevButton = document.getElementById("prevButton");
+          if (prevButton) {
+            prevButton.click();
+          }
+        }
+        if (event.key === "ArrowRight") {
+          var nextButton = document.getElementById("nextButton");
+          if (nextButton) {
+            nextButton.click();
+          }
+        }
+        if (event.key === "Backspace") {
+          var nextButton = document.getElementById("nextButton");
+          if (quitButton) {
+            quitButton.click();
+          }
+        }
+      });
+    </script>
+
+    <script>
+      function toggleAnswer() {
+        var answerDiv = document.querySelector(".answer");
+        var answerDivStyle = window.getComputedStyle(answerDiv);
+
+        if (answerDivStyle.display === "none") {
+          answerDiv.style.display = "block";
+        } else {
+          answerDiv.style.display = "none";
+        }
+      }
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          toggleAnswer();
+        }
+      });
+    </script>
+    <title>#11</title>
+  </head>
+  <body style="background-color: honeydew">
+    <a href="Chp2 - 10.html">
+      <button id="prevButton">Prev</button>
+    </a>
+
+    <a href="Chp2 - 12.html">
+      <button id="nextButton">Next</button>
+    </a>
+
+    <div style="text-align: center">
+      <p>
+        Find all values of h such that the vectors
+        <span class="math inline"
+          >\(\{\ \vec{a_1}, \vec{a_2}, \vec{a_3} \}\)</span
+        >
+        span <span class="math inline"><em>R</em><sup>3</sup></span
+        >, where
+        <span class="math display"
+          >$$\vec{a_1} = \begin{bmatrix} 2 \\ 4 \\ 5 \end{bmatrix}, \quad
+          \vec{a_2} = \begin{bmatrix} h \\ 8 \\ 10 \end{bmatrix}, \quad
+          \vec{a_3} = \begin{bmatrix} 1 \\ 2 \\ 6 \end{bmatrix}$$</span
+        >
+      </p>
+    </div>
+    <br /><br /><br />
+
+    <button onclick="toggleAnswer()">Show Answer</button>
+    <br /><br /><br />
+    <div class="answer">
+      <p>
+        1. In order to span
+        <span class="math inline"><em>R</em><sup>3</sup></span
+        >, the matrix made by these column vectors should have
+        <span class="greenhighlight">at least three pivots</span>:
+      </p>
+      <p>
+        <span class="math display"
+          >$$\begin{bmatrix} 2 &amp; h &amp; 1 \\ 4 &amp; 8 &amp; 2 \\ 5 &amp;
+          10 &amp; 6 \\ \end{bmatrix}$$</span
+        >
+      </p>
+      <p>
+        <span class="math display"
+          >$$\xrightarrow[2R_3 - 5R_1 \rightarrow R_3]{R_2 - 2R_1 \rightarrow
+          R_2}$$</span
+        >
+      </p>
+      <p>
+        <span class="math display"
+          >$$\begin{bmatrix} 2 &amp; h &amp; 1 \\ 0 &amp; 8 - 2h &amp; 0 \\ 0
+          &amp; 20 - 5h &amp; 7 \\ \end{bmatrix}$$</span
+        >
+      </p>
+      <p>
+        <span class="math display"
+          >$$\xrightarrow{R_3 - \frac{5}{2}R_2 \rightarrow R_3}$$</span
+        >
+      </p>
+      <p>
+        <span class="math display"
+          >$$\begin{bmatrix} 2 &amp; h &amp; 1 \\ 0 &amp; 8 - 2h &amp; 0 \\ 0
+          &amp; 0 &amp; 7 \\ \end{bmatrix}$$</span
+        >
+      </p>
+      <p>
+        2. Since we want three pivots, the following equation has to be
+        satisfied:
+      </p>
+      <p><span class="math display">\[ 8 - 2h \neq 0 \]</span></p>
+      <br />
+      <p><span class="math display">\[ 2h \neq 8 \]</span></p>
+      <br />
+      <p>
+        <span class="math display">\[ h \neq 4 \]</span>
+      </p>
+      <p>
+        Thus,
+        <span class="redhighlight"
+          ><span class="math display"
+            >\[ \{ h \in \mathbb{R} \quad |\quad h \neq 4 \} \]</span
+          ></span
+        >
+      </p>
+    </div>
+    <a href="/chapters/Chp2.html">
+      <button id="quitButton">Quit</button>
+    </a>
+  </body>
+</html>

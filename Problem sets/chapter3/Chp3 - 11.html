@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: {extensions: ["cancel.js"]},
+          tex2jax: {
+              inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+              processEscapes: true
+          }
+          });
+        </script>
+        <script
+          type="text/javascript"
+          id="MathJax-script"
+          async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        ></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <style>
+          #prevButton {
+            margin-top: 2%;
+            left: 7%;
+          }
+          #prevButton:hover::after {
+          content: 'Press \2190'; 
+          position: absolute;
+          top: 150%;
+          left: 2%; 
+          transform: translateY(-50%);
+          font-size: 16px;
+          color: #007bff;
+          background-color: #ddd;
+    }
+          #nextButton {
+            margin-top: 2%;
+            left: 95%;
+          }
+          #nextButton:hover::after {
+          content: 'Press \2192'; 
+          position: absolute;
+          top: 150%;
+          left: 2%; 
+          transform: translateY(-50%);
+          font-size: 16px;
+          color: #007bff;
+          background-color: #ddd;
+    }
+          #quitButton {
+            margin-top: 25%;
+            left:95%
+          }  
+          #quitButton:hover::after {
+          content: 'Press \2193'; 
+          position: absolute;
+          bottom: -100%;
+          left: 10%; 
+          transform: translateY(-50%);
+          font-size: 16px;
+          color: #007bff;
+          background-color: #ddd;
+    }
+          button {
+            margin-top: 10x;
+            padding: 5px 10px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+    
+            margin: -20px -50px;
+            position: relative;
+            top: 90%;
+            left: 48%;
+          }
+          .answer {
+            display: none;
+            max-width: 630px;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            left: 52%;
+            transform: translateX(-50%);
+          }
+    
+          .redhighlight {
+            color: red;
+            font-size: x-large;
+          }
+          .greenhighlight {
+            color: green;
+            font-size: x-large;
+          }
+        </style>
+        <script>
+          document.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowLeft") {
+              var prevButton = document.getElementById("prevButton");
+              if (prevButton) {
+                prevButton.click();
+              }
+            }
+            if (event.key === "ArrowRight") {
+              var nextButton = document.getElementById("nextButton");
+              if (nextButton) {
+                nextButton.click();
+              }
+            }
+            if (event.key === "Backspace") {
+              var nextButton = document.getElementById("nextButton");
+              if (quitButton) {
+                quitButton.click();
+              }
+            }
+          });
+        </script>
+        
+        <script>
+          function toggleAnswer() {
+            var answerDiv = document.querySelector(".answer");
+            var answerDivStyle = window.getComputedStyle(answerDiv);
+    
+            if (answerDivStyle.display === "none") {
+              answerDiv.style.display = "block";
+            } else {
+              answerDiv.style.display = "none";
+            }
+          }
+          document.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+              toggleAnswer();
+            }
+          });
+        </script>
+        <title>#11</title>
+      </head>
+<body>
+    <body style="background-color: honeydew">
+        <a href="/Problem sets/chapter3/Chp3 - 10.html">
+          <button id="prevButton">Prev</button>
+        </a>
+    
+        <a href="/Problem sets/chapter3/Chp3 - 12.html">
+          <button id="nextButton">Next</button>
+        </a>
+        <div style="text-align: center"> 
+            Determine if the statement is true or false, and justify your answer.
+<br><br>
+
+<span style="color: blue">The range of a linear transformation must be a subset of the domain.</span>
+
+
+            
+        </div>
+
+        <br /><br /><br />
+
+        <button onclick="toggleAnswer()">Show Answer</button>
+        <br /><br /><br />
+        <div class="answer"> 
+           <span class="redhighlight"> False, range is a subset of codomain. 
+        </span>
+        </div>
+        
+        
+        
+
+
+        <br><br><br>
+    <a href="/chapters/Chp3.html">
+      <button id="quitButton">Quit</button>
+    </a>
+</body>
+</html>

@@ -3,9 +3,143 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      button {
+        margin-top: 10x;
+        padding: 5px 10px;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      #quitButton {
+        top: 25%;
+        margin-left: 90%;
+      }
+      #quitButton:hover::after {
+        content: "Press \2190";
+        position: absolute;
+        bottom: 82%;
+        left: 90%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #007bff;
+        background-color: #ddd;
+      }
+    </style>
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          var prevButton = document.getElementById("quitButton");
+          if (prevButton) {
+            quitButton.click();
+          }
+        }
+      });
+    </script>
     <title>Chapter 5</title>
   </head>
   <body>
     <p>This is Chpater 5</p>
   </body>
+  <br />
+  <div>
+    <a href="/index.html">
+      <button id="quitButton">Quit</button>
+    </a>
+  </div>
+
+  <div>
+    <h2>Questions:</h2>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 1.html">1 - Find values of a ... </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 2.html">2 - Find values of a ... </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 3.html">3 - Find values of a ... </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 4.html">4 - Find values of a ... </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 5.html">1 - Minor and Cofactor </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 6.html"
+      >2 - Minor and Cofactor ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 7.html"
+      >1 - (Part 1) True or False ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 8.html"
+      >2 - (Part 1) True or False ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 9.html"
+      >3 - (Part 1) True or False ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 10.html"
+      >4 - (Part 1) True or False ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 11.html"
+      >5 - (Part 1) True or False ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 12.html"
+      >6 - (Part 1) True or False ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 13.html"
+      >7 - (Part 1) True or False ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 14.html"
+      >8 - (Part 1) True or False ...
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 15.html"
+      >1 - Elementary Row Operations and Determinants
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 16.html"
+      >2 - Elementary Row Operations and Determinants
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 17.html"
+      >3 - Elementary Row Operations and Determinants
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 18.html"
+      >4 - Elementary Row Operations and Determinants
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 19.html">1 - Determinant algebra </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 20.html">2 - Determinant algebra </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 21.html">3 - Determinant algebra </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 22.html"
+      >1 - (Part 3) True or False
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 23.html"
+      >2 - (Part 3) True or False
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 24.html"
+      >3 - (Part 3) True or False
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 25.html"
+      >4 - (Part 3) True or False
+    </a>
+    <br /><br />
+    <a href="/Problem sets/chapter5/Chp5 - 26.html"
+      >5 - (Part 3) True or False
+    </a>
+  </div>
 </html>
